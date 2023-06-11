@@ -1,0 +1,9 @@
+flask
+flask_bcrypt
+flask_login
+psycopg2
+bs4
+requests
+pandas
+sqlalchemy
+prettytable

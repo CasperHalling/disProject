@@ -1,0 +1,81 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+<html>
+<head>
+    <title>Course List</title>
+    <style>
+        /* CSS styles */
+
+        /* ... Your existing CSS styles ... */
+
+        /* Add styles for the filter form */
+        .filter-form {
+            margin-bottom: 20px;
+        }
+        .filter-input {
+            margin-right: 10px;
+        }
+        th {
+            padding: 10px;
+            text-align: left;
+        }
+        /* Add styles for the table cells */
+        td {
+            padding: 5px;
+        }
+
+        /* Add styles to move the columns to the right */
+        td:nth-child(2),
+        th:nth-child(2),
+        td:nth-child(3),
+        th:nth-child(3),
+        td:nth-child(4),
+        th:nth-child(4),
+        td:nth-child(5),
+        th:nth-child(5),
+        td:nth-child(6),
+        th:nth-child(6) {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Your existing HTML code -->
+
+    <h1>Course List</h1>
+
+    <!-- Add the filter form -->
+    <form class="filter-form" method="GET" action="/">
+        <input type="text" class="filter-input" name="course_filter" placeholder="Course Filter">
+        <input type="text" class="filter-input" name="schedule_filter" placeholder="Schedule Filter">
+        <input type="text" class="filter-input" name="termin_filter" placeholder="Termin Filter">
+        <input type="text" class="filter-input" name="average_filter" placeholder="Average Filter">
+        <input type="text" class="filter-input" name="exam_filter" placeholder="Exam Filter">
+        <input type="text" class="filter-input" name="ects_filter" placeholder="ECTS Filter">
+        <input type="submit" value="Apply Filters">
+    </form>
+
+    <table>
+        <tr>
+            <th>Course</th>
+            <th>Schedule</th>
+            <th>Termin</th>
+            <th>Average</th>
+            <th>Exam</th>
+            <th>ECTS</th>
+        </tr>
+        {% for course in courses %}
+        <tr>
+            <td>{{ course[0] }}</td>
+            <td>{{ course[1] }}</td>
+            <td>{{ course[2] }}</td>
+            <td>{{ course[3] }}</td>
+            <td>{{ course[4] }}</td>
+            <td>{{ course[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+{% endblock %}
